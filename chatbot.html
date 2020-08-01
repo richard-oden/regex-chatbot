@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap">
+    <title>Reggie the Chatbot</title>
+</head>
+<body>
+    <header>
+        <h1>Reggie the Chatbot</h1>
+        <p>Reggie is a simple chatbot powered by regular expressions.</p>
+    </header>
+    <main>
+        <div id="display" class="border">
+        </div>
+        <div id="interface">
+            <textarea id="user-input" class="border" placeholder="Type here..."></textarea>
+            <button id="send-msg" class="border" onclick="runApp()">Send</button>
+        </div>
+    </main>
+    <script src="library.js"></script>
+    <script src="chatbot.js"></script>
+</body>
+</html>

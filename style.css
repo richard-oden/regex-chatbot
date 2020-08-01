@@ -1,0 +1,117 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    max-height: 100vh;
+    margin: 0;
+}
+
+header {
+    margin: .4em;
+    padding-bottom: .6em;
+}
+
+header h1,
+header p {
+    margin: 0;
+}
+
+main {
+    margin: .4em;
+}
+
+#display,
+#user-input {
+    padding: .5em;
+}
+
+#display {
+    height: 80vh;
+    padding-bottom: 1em;
+    overflow-y: scroll;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 60px;
+}
+
+#display::-webkit-scrollbar {
+	width: 10px;
+	background-color: rgba(0, 0, 0, 0);
+}
+
+#display::-webkit-scrollbar-thumb {
+	border-radius: 5px;
+	background-color: slategrey;
+}
+
+.message {
+    width: 90%;
+    margin: .5em auto;
+    background: #00bfb6;
+    padding: .5em;
+    text-align: center;
+    color: #fff;
+    font-family: arial;
+    position: relative;
+}
+
+.from-user {
+    grid-column-start: 2;
+}
+
+.from-reggie {
+    grid-column-start: 1;
+}
+
+.message:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+}
+
+.from-user:before {
+    border-left: 10px solid #00bfb6;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #00bfb6;
+    border-bottom: 10px solid transparent;
+    right: -20px;
+    top: 6px;
+}
+
+.from-reggie:before {
+    border-left: 10px solid transparent;
+    border-right: 10px solid #00bfb6;
+    border-top: 10px solid #00bfb6;
+    border-bottom: 10px solid transparent;
+    left: -19px;
+    top: 6px;
+}
+
+#interface {
+    height: 8vh;
+    display: flex;
+    flex-direction: row;
+    margin-top: .5em;
+}
+
+#user-input:focus,
+#send-msg:focus {
+    outline: none;
+}
+
+#user-input {
+    flex: 1;
+    margin-right: .5em;
+}
+
+#send-msg {
+    width: 100px;
+}
+
+.border {
+    border: solid 1px slategrey;
+    border-radius: 5px;
+}

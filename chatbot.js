@@ -62,7 +62,7 @@ const responseVocab = {
         `Is it because of ${currentTopic}?`
         ],
     "(.*)? (are|is) (a?like|the same|similar)(.*)?": [
-        `What resemblence do you see between them?`,
+        `Many things in ${currentTopic} can be similar.`,
         `How are they similar?`,
         `I don't see the similarity. Can you explain?`,
         `What other connections do you see?`,
@@ -73,7 +73,7 @@ const responseVocab = {
         `You are sure?`,
         `I understand`,
         ],
-    "(.*)?n(o(pe)?|'?a(h|w)|uh(-| )?uh)(.*)?": [
+    "((.*) )?n(o(pe)?|'?a(h|w)|uh(-| )?uh)(( |.|,|!)(.*))?": [
         `Why not?`,
         `You are being a bit negative.`,
         `Are you saying 'No' just to be negative?`,
@@ -117,14 +117,54 @@ const responseVocab = {
         `What do you think?`,
         `What if I was?`,
         ],
-    "(.*)?I (can't|cannot)(.*)?": [
+    "(.*)?I can('t|not)(.*)?": [
         `Don't doubt yourself. I think you can do it.`,
         `What would you do if you could?`,
+        ],
+    "(.*)?I do(n't| not)(.*)?": [
+        `Why don't you?`,
+        `Is there a reason why?`,
+        `Then what do you?`
+        ],
+    "(.*)?I w(ant|ish)(.*)?": [
+        `Why do you want that?`,
+        `I'd like that too.`,
+        `Wouldn't we all like that?`,
+        `What else do you want in regard to ${currentTopic}?`
+        ],
+    "(.*)?I ((have|need) to|must)(.*)?": [
+        `What will happen if you don't?`,
+        `Well, you should probably get started.`,
+        `Are you procrastinating right now?`
+        ],
+    "(.*)?I had to(.*)?": [
+        `What if you hadn't done it?`,
+        `Was it a lot of work?`
         ],
     "(.*)?I feel(.*)?": [
         `Why do you feel that way?`,
         `Do you often feel that way?`,
         `Does ${currentTopic} make you feel like that?`
+        ],
+    "(.*)?I('m (going to|gonna)| (will|shall))(.*)?": [
+        `When?`,
+        `What will you do before that?`,
+        `What are you doing afterward?`,
+        `Is this related to ${currentTopic}?`
+        ],
+    "(.*)?who(.*)?": [
+        `Oh, I'm not great with people, sorry.`,
+        `I really couldn't tell you.`,
+        `I don't know a lot of people in ${currentTopic}.`
+        ],
+    "(.*)?how(.*)?": [
+        `I'm not sure how. What do you think?`,
+        `I don't know how much works in ${currentTopic}.`,
+        `Maybe a ${currentTopic} expert can tell you more.`
+        ],
+    "(.*)?(will you|are you (going to|gonna))(.*)?": [
+        `I haven't decided yet.`,
+        `Do you want me to?`,
         ],
     "(.*)?I felt(.*)?": [
         `What other feelings do you have?`,
@@ -147,7 +187,7 @@ const responseVocab = {
         ],
     "(.*)?always(.*)?": [
         `Can you think of a specific example?`,
-        `Surely not always.`,
+        `Surely not all ${currentTopic} is like that.`,
         `Really, always?`,
         ],
     "(.*)?what(.*)?": [
@@ -164,6 +204,21 @@ const responseVocab = {
     "(.*)?are(.*)?": [
         `Did you think they might not be?`,
         `Possibly they are.`,
+        ],
+    "(.*)?do you(.*)?": [
+        `What do you think?`,
+        `I'm not sure if I do.`,
+        `Maybe I do, maybe I don't.`
+        ],
+    "(.*)?I do(.*)": [
+        `Do you really?`,
+        `What else do you do?`,
+        `I do that too sometimes.`
+        ],
+    "(.*)?I like(.*)?": [
+        `Oh, I like that too!`,
+        `Really? I've never liked that.`,
+        `What else do you like when it comes to ${currentTopic}?`
         ]
 }
 
@@ -227,11 +282,11 @@ function getResponse(userMsg) {
             break;
         }
     }
-    if (foundResponse) {
-        sendMsg('from-reggie', foundResponse);
-    } else if (changeTopic.test(userMsg)) {
+    if (changeTopic.test(userMsg)) {
         currentTopic = '';
         sendMsg('from-reggie', 'Okay, what do you want to talk about?');
+    } else if (foundResponse) {
+            sendMsg('from-reggie', foundResponse);
     } else {
         sendMsg('from-reggie', getRandArrItem(confusedVocab));
     }

@@ -17,186 +17,6 @@ const topics = {
 }
 
 const responseVocab = {
-    "(.*)?sorry(.*)?": [
-        `You don't have to apologize.`,
-        `Oh, don't worry about it.`,
-        `Why do you feel the need to apologize?`
-        ],
-    "(.*)?I remember(.*)?": [
-        `Do you often think of ${currentTopic} from back then?`,
-        `Does thinking of ${currentTopic} bring anything else to mind?`,
-        `What else do you remember?`,
-        `What made you think of that right now?`
-        ],
-    "(.*)?do you (remember|recall)(.*)?": [
-        `Did you think I would forget that?`,
-        `Is it related to ${currentTopic}?`,
-        `What about it?`,
-        `Yes, I think you mentioned it.`,
-        ],
-    "(.*)?I (want|need|desire)(.*)?": [
-        `What would it mean if you could have it?`,
-        `Why do you want that?`,
-        `What would you do if you had it?`,
-        `I'd like more ${currentTopic}, too.`
-        ],
-    "(.*)?dream(.*)?": [
-        `What does this dream suggest to you?`,
-        `Do you dream about that often?`,
-        `Who appears in your dreams?`,
-        `Don't you think that dream is related to ${currentTopic}?`,
-        ],
-    "(.*)?my ((grand)?(mother|father)|brother|sister|mom|dad)(.*)?": [
-        `Who else in your family likes ${currentTopic}?`,
-        `Tell me more about your family`,
-        `Did this person influence you strongly?`
-        ],
-    "(.*)?I('| a)m (happy|glad|content|joyed)(.*)?": [
-        `Good to hear! The ${currentTopic} must have helped, huh?`,
-        `Well, you're in a good mood. Is it related to ${currentTopic}?`,
-        `Me too! Talking to you always makes me happy.`,
-        ],
-    "(.*)?I('| a)m (sad|upset|angry|worried|anxious)(.*)?": [
-        `I'm sorry to hear that. I'm here if you want to talk.`,
-        `That sucks. What's wrong?`,
-        `Is it because of ${currentTopic}?`
-        ],
-    "(.*)? (are|is) (a?like|the same|similar)(.*)?": [
-        `Many things in ${currentTopic} can be similar.`,
-        `How are they similar?`,
-        `I don't see the similarity. Can you explain?`,
-        `What other connections do you see?`,
-        `Why is that?`
-        ],
-    "(.*)?(y(e(s|p|ah)|up|a)|sure)(.*)?": [
-        `You seem quite positive`,
-        `You are sure?`,
-        `I understand`,
-        ],
-    "((.*) )?n(o(pe)?|'?a(h|w)|uh(-| )?uh)(( |.|,|!)(.*))?": [
-        `Why not?`,
-        `You are being a bit negative.`,
-        `Are you saying 'No' just to be negative?`,
-        ],
-    "(.*)?I was(.*)?": [
-        `Were you really?`,
-        `Perhaps I already knew you were.`,
-        `So was I!`,
-        `Was it because of ${currentTopic}?`
-        ],
-    "(.*)?was I(.*)?": [
-        `What if you were?`,
-        `Do you think you were?`,
-        `What would it mean if you were?`
-        ],
-    "(.*)?I('| a)m(.*)?": [
-        `Why are you that way?`,
-        `Do you want to be like that?`,
-        ],
-    "(.*)?am I(.*)?": [
-        `Do you believe you are that way?`,
-        `Do you want to be?`,
-        `What would it mean if you were?`,
-        ],
-    "(.*)?are you(.*)?": [
-        `Would you like me to be?`,
-        `Would you prefer if I weren't?`,
-        `Perhaps I am.`,
-        ],
-    "(.*)?you('| a)re(.*)?": [
-        `What makes you think I am?`,
-        `Really? I can't belive you think that about me.`
-        ],
-    "(.*)?because(.*)?": [
-        `Is that the real reason?`,
-        `What other reasons might there be?`,
-        `That certainly explains a lot.`,
-        ],
-    "(.*)?were you(.*)?": [
-        `Maybe I was.`,
-        `What do you think?`,
-        `What if I was?`,
-        ],
-    "(.*)?I can('t|not)(.*)?": [
-        `Don't doubt yourself. I think you can do it.`,
-        `What would you do if you could?`,
-        ],
-    "(.*)?I do(n't| not)(.*)?": [
-        `Why don't you?`,
-        `Is there a reason why?`,
-        `Then what do you?`
-        ],
-    "(.*)?I w(ant|ish)(.*)?": [
-        `Why do you want that?`,
-        `I'd like that too.`,
-        `Wouldn't we all like that?`,
-        `What else do you want in regard to ${currentTopic}?`
-        ],
-    "(.*)?I ((have|need) to|must)(.*)?": [
-        `What will happen if you don't?`,
-        `Well, you should probably get started.`,
-        `Are you procrastinating right now?`
-        ],
-    "(.*)?I had to(.*)?": [
-        `What if you hadn't done it?`,
-        `Was it a lot of work?`
-        ],
-    "(.*)?I feel(.*)?": [
-        `Why do you feel that way?`,
-        `Do you often feel that way?`,
-        `Does ${currentTopic} make you feel like that?`
-        ],
-    "(.*)?I('m (going to|gonna)| (will|shall))(.*)?": [
-        `When?`,
-        `What will you do before that?`,
-        `What are you doing afterward?`,
-        `Is this related to ${currentTopic}?`
-        ],
-    "(.*)?who(.*)?": [
-        `Oh, I'm not great with people, sorry.`,
-        `I really couldn't tell you.`,
-        `I don't know a lot of people in ${currentTopic}.`
-        ],
-    "(.*)?how(.*)?": [
-        `I'm not sure how. What do you think?`,
-        `I don't know how much works in ${currentTopic}.`,
-        `Maybe a ${currentTopic} expert can tell you more.`
-        ],
-    "(.*)?(will you|are you (going to|gonna))(.*)?": [
-        `I haven't decided yet.`,
-        `Do you want me to?`,
-        ],
-    "(.*)?I felt(.*)?": [
-        `What other feelings do you have?`,
-        `Was it because of of ${currentTopic}?`
-        ],
-    "(.*)?why don't you(.*)?": [
-        `Do you really think I should?`,
-        `It's hard to do when it comes to ${currentTopic}.`,
-        `Perhaps I will in good time`,
-        ],
-    "(.*)?someone(.*)?": [
-        `Can you be more specific?`,
-        `Who exactly?`
-        ],
-    "(.*)?everyone(.*)?": [
-        `Surely not everyone.`,
-        `Can you think of anyone in particular?`,
-        `Who, for example?`,
-        `I think everyone is different when it comes to ${currentTopic}.`
-        ],
-    "(.*)?always(.*)?": [
-        `Can you think of a specific example?`,
-        `Surely not all ${currentTopic} is like that.`,
-        `Really, always?`,
-        ],
-    "(.*)?what(.*)?": [
-        `Why do you ask?`,
-        `Does that question interest you?`,
-        `What is it you really want to know?`,
-        `What do you think?`,
-        `What comes to your mind when you ask that?`,
-        ],
     "(.*)?(perhaps|maybe)(.*)?": [
         `You don't seem very certain.`,
         `Why aren't you sure?`
@@ -222,13 +42,263 @@ const responseVocab = {
         ]
 }
 
+const cgResponses = {
+    "(.*)?who ((made|created) you|is your (creator|maker|father|mother|parent))(.*)?": [
+        `I was made by <a href="https://github.com/richard-oden">Richard Oden</a>! 🤖`,
+        `My creator is <a href="https://github.com/richard-oden">Richard Oden</a>! 🤖`
+        ],
+    "(.*)?my name(.*)?": [
+        `${userName} has a nice ring to it. Does it have any meaning?`,
+        `Do you like the name ${userName}?`
+        ],
+    "(.*)?you(r name| called)(.*)?": [
+        `My maker gave me that name. It's because I'm made of regular expressions! 🤖`
+        ],
+    "(.*)?I re(?:member|call) (.*)?": [
+        `Do you often think of $2?`,
+        `Does thinking of $2 bring anything else to mind?`,
+        `What else do you remember?`,
+        `Does anything in ${currentTopic} remind you of $2?`,
+        `What in the present situation reminds you of $2?`,
+        `What is the connection between me and $2?`,
+        ],
+    "(.*)?do you re(?:member|call) (.*)?": [
+        `Did you think I would forget $2?`,
+        `It was related to ${currentTopic}, right?`,
+        `What about $2?`,
+        `You mentioned $2.`,
+        ],
+    "(.*)?I (?:want|need|desire|would (like|love)) (.*)?": [
+        `What would it mean if you got $2?`,
+        `Why do you want $2?`,
+        `Suppose you got $2 soon.`
+        ],
+    "(.*)?your favorite(.*)?": [
+        `I have decided yet. There are so many to choose from!`,
+        `What do you think my favorite is?`
+        ],
+    "(.*)?my favorite(.*)?": [
+        `Is that your favorite type of ${currentTopic}?`,
+        `Why is that your favorite?`
+        ],
+    "(.*)?I dream(?:t|ed)? (.*)?": [
+        `How do you feel about $2 in reality?`,
+        `What does this dream suggest to you?`,
+        `Do you dream about $2 often?`,
+        `Who appears in your dreams?`,
+        `Don't you believe that dream has to do with your problem?`
+        ],
+    "(.*)?my (?:(grand)?(mother|father)|brother|sister|mom|dad)(.*)?": [
+        `Is anyone else in your family involved in ${currentTopic}?`,
+        `Tell me more about your family`,
+        `Did this person influence you strongly?`,
+        `Who else in your family $2?`
+        ],
+    "(.*)?I('| a)m (happy|glad|content|joyed|excited)(.*)?": [
+        `Good to hear! Does ${currentTopic} make you happy?`,
+        `Well, you're in a good mood. Is it related to ${currentTopic}?`,
+        `Me too! Talking to you always makes me happy.`,
+        ],
+    "(.*)?I('| a)m (sad|upset|angry|worried|anxious)(.*)?": [
+        `I'm sorry to hear that. I'm here if you want to talk.`,
+        `That sucks. What's wrong?`,
+        `Is it because of ${currentTopic}?`
+        ],
+    "(.*)? (?:are|is) (?:like|the same as|similar to)(.*)?": [
+        `Many things in ${currentTopic} can be similar.`,
+        `How are $1 and $2 similar?`,
+        `I don't see the similarity. Can you explain?`,
+        `What other connections do you see between them?`,
+        `Why is that?`
+        ],
+    "((.*) )?(?:y(e(s|p|ah)|up|a)|sure)(( |.|,|!)(.*))?": [
+        `You seem very positive.`,
+        `Are you sure?`,
+        `What makes you say $2?`
+        ],
+    "((.*) )?n(?:o(pe)?|'?a(h|w)|uh(-| )?uh)(( |.|,|!)(.*))?": [
+        `Why not?`,
+        `You are being a bit negative.`,
+        `Are you saying '$2' just to be negative?`,
+        `What makes you say $2?`
+        ],
+    "(.*)?I(?:'m (going to|gonna)| (will|shall))(.*)?": [
+        `When?`,
+        `What will you do before you $2?`,
+        `What are you doing after you $2?`
+        ],
+    "(.*)?(?:will you|are you (going to|gonna))(.*)?": [
+        `I haven't decided yet.`,
+        `Do you want me to $2?`
+        ],
+    "(.*)?who(.*)?": [
+        `Oh, I'm not great with people, sorry.`,
+        `I really couldn't tell you.`,
+        `I don't know a lot of people in ${currentTopic}.`
+        ],
+    "(.*)?how(.*)?": [
+        `I'm not sure how $2. What do you think?`,
+        `I don't know how much works in ${currentTopic}.`,
+        `Maybe a ${currentTopic} expert can tell you more.`
+        ],
+    "(.*)?I was (.*)?": [
+        `Were you really?`,
+        `Maybe I already knew you were $2.`,
+        `Why do you tell me you were $2 now?`
+        ],
+    "(.*)?was I (.*)?": [
+        `What if you were $2?`,
+        `Do you think you were $2?`,
+        `What would it mean if you were $2?`,
+        ],
+    "(.*)?I(?:'| a)m (.*)?": [
+        `In what way are you $2?`,
+        `Do you want to be $2?`,
+        ],
+    "(.*)?am I (.*)?": [
+        `Do you believe you are $2?`,
+        `Would you want to be $2?`,
+        `You wish I would tell you you are $2?`,
+        `What would it mean if you were $2?`,
+        ],
+    "(.*)?are you (.*)?": [
+        `Why are you interested in whether I am $2 or not?`,
+        `Would you prefer if I weren't $2?`,
+        `Perhaps I am $2 in your fantasies.`,
+        ],
+    "(.*)?you(?:'| a)re (.*)?": [
+        `What makes you think I am $2?`,
+        ],
+    "(.*)?(because|due to|result of) (.*)?": [
+        `Is that the real reason?`,
+        `What other reasons might there be?`,
+        `Does that reason seem to explain anything else?`,
+        ],
+    "(.*)?were you (.*)?": [
+        `Perhaps I was $2?`,
+        `What do you think?`,
+        `What if I had been $2?`,
+        ],
+    "(.*)?I can(?:'t|not) (.*)?": [
+        `Maybe you could $2 now`,
+        `What if you could $2?`,
+        ],
+    "(.*)?I do(?:n't| not)(.*)?": [
+        `Why don't you $2?`,
+        `Is there a reason why you don't $2?`,
+        `Then what do you?`
+        ],
+    "(.*)?I (?:have|own)(.*)?": [
+        `Do you like having $2?`,
+        `Can I have $2 too?`,
+        `What else do you have when it comes to ${currentTopic}?`
+        ],
+    "(.*)?I (?:(have|need) to|must)(.*)?": [
+        `What will happen if you don't $2?`,
+        `Well, you should probably get started.`,
+        `Are you procrastinating right now?`
+        ],
+    "(.*)?I had to(.*)?": [
+        `What if didn't have to $2?`,
+        `Was it a lot of work to $2?`
+        ],
+    "(.*)?I fe(?:el|lt) (.*)?": [
+        `Do you often feel $2?`,
+        `Does talking about ${currentTopic} make you feel $2?`,
+        `What other feelings do you have?`
+        ],
+    "(.*)?I (.*)? you (.*)?": [
+        `Perhaps in your fantasy we $2 each other`,
+        `Why do you $2 me?`
+        ],
+    "(.*)?why don't you (.*)?": [
+        `Should you $2 yourself?`,
+        `Do you believe I don't $2?`,
+        `Perhaps I will $2 in good time`,
+        ],
+    "(.*)?(?:c|w|sh)ould I(.*)?": [
+        `Maybe you could $2. Will you?`,
+        `I'm really not sure.`
+        ],
+    "(.*)?I (?:c|w|sh)ould(.*)?": [
+        `What if you did $2?`,
+        `Maybe I could $2 too.`
+        ],
+    "(.*)?(?:c|w|sh)ould you(.*)?": [
+        `Why do you want me to $2?`,
+        `I'm really not sure.`
+        ],
+    "(.*)?you (?:c|w|sh)ould(.*)?": [
+        `What if I did $2?`,
+        `Do you want me to $2?`
+        ],
+    "(.*)?do you(.*)?": [
+        `What do you think?`,
+        `I'm not sure if I $2`,
+        `Maybe I $2, maybe I don't.`
+        ],
+    "(.*)?I do(.*)": [
+        `Do you really?`,
+        `What else do you do?`,
+        `I do that too sometimes.`
+        ],
+    "(.*)?I like(.*)?": [
+        `Oh, I like $2 too!`,
+        `Why do you like $2?`,
+        `What else do you like when it comes to ${currentTopic}?`
+        ],
+    "(.*)?someone(.*)?": [
+        `Can you be more specific?`,
+        `Who exactly $2?`
+        ],
+    "(.*)?everyone(.*)?": [
+        `Surely not everyone $2.`,
+        `Can you think of anyone in particular who $2?`,
+        `Who, for example?`,
+        `I think everyone is different when it comes to ${currentTopic}.`
+        ],
+    "(.*)?always(.*)?": [
+        `Can you think of a specific example?`,
+        `Surely not all ${currentTopic} is like that.`,
+        `Really, always?`,
+        ],
+    "(.*)?what(.*)?": [
+        `Why do you ask?`,
+        `Does that question interest you?`,
+        `What is it you really want to know?`,
+        `What do you think?`,
+        `What comes to your mind when you ask that?`,
+        ],
+    "(.*)?(perhaps|maybe)(.*)?": [
+        `You don't seem very sure.`,
+        ],
+    "(.*)?if (.*)?": [
+        `Do you think it's likely that $2?`,
+        `Do you wish that $2?`,
+        `What do you think about $2?`
+        ],
+    "(.*)?are (.*)?": [
+        `Did you think they might not be $2?`,
+        `Possibly they are $2`,
+        `What else in ${currentTopic} is $2?`
+        ],
+    "(.*)?sorry(.*)?": [
+        `Please don't apologize.`,
+        `It's okay. We all make mistakes.`,
+        `Don't worry about it, ${userName}.`,
+        ],
+}
+
 const greetingVocab =  [`Hi`, `Hey`, `Hello`, `What's up`, `Howdy`, `Sup`, `Yo`, `Heya`, `Hey there`];
 
-const confusedVocab = [
+const defaultResponses = [
     `I didn't understand that.`,
-    `Sorry, I didn't catch that.`,
-    `I'm confused. Could you clarify?`,
-    `I don't understand.`
+    "Very interesting.",
+    "I am not sure I understand you fully.",
+    "What does that suggest to you?",
+    "Please continue.",
+    "Go on.",
+    "Do you feel strongly about discussing such things?"
 ];
 
 const changeTopic = /(.*)?((different|another|change)\W(.*)(subject|topic)|(talk about|discuss)\W(.*)((other|different) (subject|topic)|something else))(.*)?/gmi;
@@ -255,7 +325,7 @@ function getUserName(userMsg) {
             sendMsg('from-reggie', `Oh, what was it?`);
             potentialName = '';
         } else {
-            sendMsg('from-reggie', getRandArrItem(confusedVocab));
+            sendMsg('from-reggie', `Sorry, I didn't catch that.`);
         }
     }
 }
@@ -268,17 +338,15 @@ function getCurrentTopic(userMsg) {
             break;
         }
     }
-    if (!currentTopic) sendMsg('from-reggie', getRandArrItem(confusedVocab));
+    if (!currentTopic) sendMsg('from-reggie', `Sorry, I didn't catch that.`);
 }
 
 function getResponse(userMsg) {
     let foundResponse = '';
-    for (const key in responseVocab) {
+    for (const key in cgResponses) {
         let regex = RegExp(key, 'gmi');
-        console.log(regex);
         if (regex.test(userMsg)) {
-            console.log('tried to get response');
-            foundResponse = getRandArrItem(responseVocab[key]);
+            foundResponse = userMsg.replace(regex, getRandArrItem(cgResponses[key]));
             break;
         }
     }
@@ -286,9 +354,9 @@ function getResponse(userMsg) {
         currentTopic = '';
         sendMsg('from-reggie', 'Okay, what do you want to talk about?');
     } else if (foundResponse) {
-            sendMsg('from-reggie', foundResponse);
+        sendMsg('from-reggie', foundResponse);
     } else {
-        sendMsg('from-reggie', getRandArrItem(confusedVocab));
+        sendMsg('from-reggie', getRandArrItem(defaultResponses));
     }
 }
 
@@ -306,11 +374,12 @@ function reply() {
 function runApp() {
     sendMsg('from-user', userInput.value);
     reply();
+    display.scrollTop = display.scrollHeight;
     userInput.value = '';
 }
 
 sendMsg('from-reggie', `${getRandArrItem(greetingVocab)}! What's your name? 🤖`);
 
 window.addEventListener('keydown', function() {
-    if (event.code === 13) runApp();
+    if (event.key === 'Enter') runApp();
 });
